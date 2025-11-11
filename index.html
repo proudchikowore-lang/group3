@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit Classifier</title>
+<link href="https:                                                                                    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+  body {
+    /* Gradient background */
+    background: linear-gradient(135deg, #006b79 0%, #1db0dd 50%, #84b5d1 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .container {
+    max-width: 60%;
+    background: #ffffffee;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 1.2s ease-in-out;
+    margin-top: 30px;
+  }
+  h1 {
+    font-weight: bold;
+    text-align: center;
+    color: #04aeb4;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  h2 {
+    color: #02969b;
+    margin-top: 30px;
+    font-weight: 600;
+  }
+  .lead {
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+  }
+  .form-control:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 0 8px rgba(255,111,97,0.3);
+  }
+  .btn-success {
+    background: linear-gradient(135deg, #049aad, #02545a);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 200px;
+  }
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+  hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #ff6f61, #ff9a9e);
+    margin: 30px 0;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
+</head>
+<body>
+  <div class="container animate__animated animate__fadeIn">
+    <h1 class="animate__animated animate__fadeInDown">🍓 Fruit Image Classification 🍊</h1>
+
+    <!-- dataset upload form -->
+    <hr>
+    <h2 class="animate__animated animate__fadeInUp">Upload Dataset</h2>
+    <form action="/upload-dataset" method="post" enctype="multipart/form-data">
+      <div class="mb-3 animate__animated animate__fadeInUp">
+        <label for="dataset" class="form-label">Upload Dataset Zip</label>
+        <input class="form-control" type="file" id="dataset" name="file">
+      </div>
+      <button type="submit" class="btn btn-success animate__animated animate__fadeInUp">Upload Dataset</button>
+    </form>
+
+    <!-- train dataset button -->
+    <hr>
+    <h2 class="animate__animated animate__fadeInUp">Train Dataset</h2>
+    <form action="/train" method="post">
+      <button type="submit" class="btn btn-success animate__animated animate__fadeInUp">Train Dataset</button>
+    </form>
+
+    <!-- prediction form -->
+    <hr>
+    <p class="lead animate__animated animate__fadeInUp">Upload a fruit image and get prediction instantly!</p>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+      <div class="mb-3 animate__animated animate__fadeInUp">
+        <label for="file" class="form-label">Upload Image</label>
+        <input class="form-control" type="file" id="file" name="file">
+      </div>
+      <button type="submit" class="btn btn-success animate__animated animate__fadeInUp">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
+
